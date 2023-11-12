@@ -1,7 +1,5 @@
 package views;
 
-import model.TablaAdmin;
-
 
 public class Graficap extends javax.swing.JFrame {
     int xMouse,yMouse;
@@ -181,14 +179,17 @@ public class Graficap extends javax.swing.JFrame {
          
         String usu=Usuario.getText();
          String contra=contraseña.getText();
-        if ("admin".equals(usu)||"admin".equals(contra)){
-        TablaAdmin veradmin = new TablaAdmin();
-        veradmin.setVisible(true);
-        this.dispose();
-        }else{{
-         MenuDeInicio menu = new MenuDeInicio();
-        menu.setVisible(true);
-        this.dispose();}} 
+        if ("admin".equals(usu) || "admin".equals(contra)) {
+            TablaAdmin veradmin = new TablaAdmin();
+            veradmin.setVisible(true);
+            this.dispose();
+        } else {
+            {
+                MenuDeInicio menu = new MenuDeInicio();
+                menu.setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_IniciarSeicionActionPerformed
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
