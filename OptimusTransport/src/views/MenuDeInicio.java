@@ -1,4 +1,11 @@
 package views;
+import javax.swing.event.MouseInputListener;
+import org.jxmapviewer.viewer.DefaultTileFactory;
+import org.jxmapviewer.viewer.GeoPosition;
+import org.jxmapviewer.viewer.TileFactoryInfo;
+import org.jxmapviewer.OSMTileFactoryInfo;
+import org.jxmapviewer.input.PanMouseInputListener;
+import org.jxmapviewer.input.ZoomMouseWheelListenerCenter;
 
 
 public class MenuDeInicio extends javax.swing.JFrame {
@@ -7,7 +14,24 @@ public class MenuDeInicio extends javax.swing.JFrame {
    
     public MenuDeInicio() {
         initComponents();
-    this.setLocationRelativeTo(null);
+        init();
+        this.setLocationRelativeTo(null);
+    }
+    
+    private void init(){
+        TileFactoryInfo info = new OSMTileFactoryInfo();
+        DefaultTileFactory tileFactory = new DefaultTileFactory(info);
+        jXMapViewer.setTileFactory(tileFactory);
+        GeoPosition geo = new GeoPosition(10.4065815,-75.505868);
+        jXMapViewer.setAddressLocation(geo);
+        jXMapViewer.setZoom(3);
+        
+        //        crear eventos con el mouse
+        MouseInputListener mm = new PanMouseInputListener(jXMapViewer);
+        jXMapViewer.addMouseListener(mm);
+        jXMapViewer.addMouseMotionListener(mm);
+        jXMapViewer.addMouseWheelListener(new ZoomMouseWheelListenerCenter(jXMapViewer));
+      
     }
 
   
@@ -22,10 +46,10 @@ public class MenuDeInicio extends javax.swing.JFrame {
         Avatar = new javax.swing.JLabel();
         CerrarSeion = new javax.swing.JButton();
         Nombre = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         Crutas = new javax.swing.JButton();
         CyH = new javax.swing.JButton();
         Mapa = new javax.swing.JButton();
+        jXMapViewer = new org.jxmapviewer.JXMapViewer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -56,7 +80,6 @@ public class MenuDeInicio extends javax.swing.JFrame {
         Avatar.setText("jLabel2");
         jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, -1));
 
-        CerrarSeion.setBackground(new java.awt.Color(255, 255, 255));
         CerrarSeion.setFont(new java.awt.Font("Black Carrot", 0, 10)); // NOI18N
         CerrarSeion.setForeground(new java.awt.Color(255, 102, 0));
         CerrarSeion.setText("Cerrar sesion ");
@@ -75,23 +98,16 @@ public class MenuDeInicio extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Mapa.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 46, 440, 440));
-
-        Crutas.setBackground(new java.awt.Color(255, 255, 255));
         Crutas.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         Crutas.setForeground(new java.awt.Color(255, 102, 0));
         Crutas.setText("Consultar Rutas");
         jPanel3.add(Crutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 180, 40));
 
-        CyH.setBackground(new java.awt.Color(255, 255, 255));
         CyH.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         CyH.setForeground(new java.awt.Color(255, 102, 0));
         CyH.setText("Codigos y Horarios");
         jPanel3.add(CyH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 180, 40));
 
-        Mapa.setBackground(new java.awt.Color(255, 255, 255));
         Mapa.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         Mapa.setForeground(new java.awt.Color(255, 102, 0));
         Mapa.setText("Mapa");
@@ -101,6 +117,7 @@ public class MenuDeInicio extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 180, 40));
+        jPanel3.add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 440, 440));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 490));
 
@@ -173,9 +190,9 @@ public class MenuDeInicio extends javax.swing.JFrame {
     private javax.swing.JButton Mapa;
     private javax.swing.JLabel Menu;
     private javax.swing.JLabel Nombre;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private org.jxmapviewer.JXMapViewer jXMapViewer;
     // End of variables declaration//GEN-END:variables
 
     private void setLocation(int i) {
