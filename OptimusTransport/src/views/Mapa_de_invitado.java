@@ -13,7 +13,7 @@ import org.jxmapviewer.viewer.TileFactoryInfo;
 public class Mapa_de_invitado extends javax.swing.JFrame {
     int Xmouse,Ymouse;
     
-    public Mapa_de_invitado() {
+    public Mapa_de_invitado() { 
         initComponents();
         init();
         this.setLocationRelativeTo(null);
