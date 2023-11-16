@@ -1,7 +1,16 @@
 package views;
 
+import Conexion.conex;
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Graficap extends javax.swing.JFrame {
+    conex con = new conex();
+    Connection cn = (Connection) con.conectarBD();
+    
     int xMouse,yMouse;
     
     public Graficap() {
@@ -177,8 +186,13 @@ public class Graficap extends javax.swing.JFrame {
 
     private void IniciarSeicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSeicionActionPerformed
          
+            // Obtener el nombre de usuario y la contraseña ingresados
+        String nombreUsuario = Usuario.getText();
+        String password = new String(contraseña.getPassword()); // Obtener la contraseña como un String seguro
+    
         String usu=Usuario.getText();
-         String contra=contraseña.getText();
+        String contra=contraseña.getText();
+        
         if ("admin".equals(usu) || "admin".equals(contra)) {
             TablaAdmin veradmin = new TablaAdmin();
             veradmin.setVisible(true);
@@ -190,8 +204,37 @@ public class Graficap extends javax.swing.JFrame {
                 this.dispose();
             }
         }
+        
+         // Lógica de verificación en la base de datos
+        if (verificarUsuario(nombreUsuario, password)) {
+            // Si los datos son correctos, abrir la nueva ventana
+            MenuDeInicio menu = new MenuDeInicio();
+            menu.setVisible(true);
+            this.dispose(); // Cerrar la ventana actual
+        } else {
+            // Si los datos son incorrectos, mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_IniciarSeicionActionPerformed
+// Método para verificar los datos del usuario en la base de datos
+// Método para verificar los datos del usuario en la base de datos
 
+    private boolean verificarUsuario(String nombreUsuario, String password) {
+        try {
+            String query = "SELECT * FROM Usuarios WHERE usuario = ? AND password = ?";
+            PreparedStatement statement = cn.prepareStatement(query);
+            statement.setString(1, nombreUsuario);
+            statement.setString(2, password);
+            ResultSet result = statement.executeQuery();
+
+            // Si hay algún resultado, los datos son correctos
+            return result.next();
+        } catch (SQLException e) {
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+            e.printStackTrace();
+            return false;
+        }
+    }
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         xMouse = evt.getX();
         yMouse=evt.getY();
