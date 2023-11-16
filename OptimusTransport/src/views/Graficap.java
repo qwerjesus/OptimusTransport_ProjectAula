@@ -190,20 +190,20 @@ public class Graficap extends javax.swing.JFrame {
         String nombreUsuario = Usuario.getText();
         String password = new String(contraseña.getPassword()); // Obtener la contraseña como un String seguro
     
-        String usu=Usuario.getText();
-        String contra=contraseña.getText();
-        
-        if ("admin".equals(usu) || "admin".equals(contra)) {
-            TablaAdmin veradmin = new TablaAdmin();
-            veradmin.setVisible(true);
-            this.dispose();
-        } else {
-            {
-                MenuDeInicio menu = new MenuDeInicio();
-                menu.setVisible(true);
-                this.dispose();
-            }
-        }
+//        String usu=Usuario.getText();
+//        String contra=contraseña.getText();
+//        
+//        if ("admin".equals(usu) || "admin".equals(contra)) {
+//            TablaAdmin veradmin = new TablaAdmin();
+//            veradmin.setVisible(true);
+//            this.dispose();
+//        } else {
+//            {
+//                MenuDeInicio menu = new MenuDeInicio();
+//                menu.setVisible(true);
+//                this.dispose();
+//            }
+//        }
         
          // Lógica de verificación en la base de datos
         if (verificarUsuario(nombreUsuario, password)) {
