@@ -1,6 +1,6 @@
 package views;
 
-import Conexion.conex;
+import conexion.conex;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,19 +190,20 @@ public class Graficap extends javax.swing.JFrame {
         String nombreUsuario = Usuario.getText();
         String password = new String(contraseña.getPassword()); // Obtener la contraseña como un String seguro
     
-//        String usu=Usuario.getText();
-//        String contra=contraseña.getText();
-//        
-//        if ("admin".equals(usu) || "admin".equals(contra)) {
-//            TablaAdmin veradmin = new TablaAdmin();
-//            veradmin.setVisible(true);
-//            this.dispose();
-//        } else {
-//            {
+        String usu=Usuario.getText();
+        String contra=contraseña.getText();
+        
+        if (usu.contentEquals("admin") && contra.contentEquals("admin")) {
+            TablaAdmin veradmin = new TablaAdmin();
+            veradmin.setVisible(true);
+            this.dispose();
+        }
+//        else {
+//            
 //                MenuDeInicio menu = new MenuDeInicio();
 //                menu.setVisible(true);
 //                this.dispose();
-//            }
+//            
 //        }
         
          // Lógica de verificación en la base de datos

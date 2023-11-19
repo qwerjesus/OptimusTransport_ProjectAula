@@ -1,11 +1,16 @@
 package views;
+import seguridadHash.PasswordHashing;
+import javax.swing.JOptionPane;
+import conexion.conex;
 
 
 public class RegistroDeusuarios extends javax.swing.JFrame {
-int Xmouse,Ymouse;
+    conex con = new conex();
+    int Xmouse,Ymouse;
     
     public RegistroDeusuarios() {
         initComponents();
+        con.conectarBD(); 
         this.setLocationRelativeTo(null);
     }
 
@@ -17,11 +22,11 @@ int Xmouse,Ymouse;
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
-        Nombredeusaio = new javax.swing.JTextField();
+        Nombredeusuario = new javax.swing.JTextField();
         Contraseña = new javax.swing.JLabel();
-        Contraseñas = new javax.swing.JTextField();
+        Contrasenas = new javax.swing.JTextField();
         ConfirmarContraseña = new javax.swing.JLabel();
-        Ccontraseña = new javax.swing.JTextField();
+        Contrasña = new javax.swing.JTextField();
         Registrar = new javax.swing.JButton();
         Volver = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
@@ -49,9 +54,13 @@ int Xmouse,Ymouse;
         Logo.setText("jLabel2");
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 280, 250));
 
-        Nombredeusaio.setBackground(new java.awt.Color(255, 255, 255));
-        Nombredeusaio.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jPanel1.add(Nombredeusaio, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 160, -1));
+        Nombredeusuario.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        Nombredeusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombredeusuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Nombredeusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 160, -1));
 
         Contraseña.setBackground(new java.awt.Color(255, 255, 255));
         Contraseña.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -59,9 +68,8 @@ int Xmouse,Ymouse;
         Contraseña.setText("Contraseña:");
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 160, -1));
 
-        Contraseñas.setBackground(new java.awt.Color(255, 255, 255));
-        Contraseñas.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jPanel1.add(Contraseñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
+        Contrasenas.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
 
         ConfirmarContraseña.setBackground(new java.awt.Color(255, 255, 255));
         ConfirmarContraseña.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -69,11 +77,9 @@ int Xmouse,Ymouse;
         ConfirmarContraseña.setText("Confirmar contraseña:");
         jPanel1.add(ConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
-        Ccontraseña.setBackground(new java.awt.Color(255, 255, 255));
-        Ccontraseña.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jPanel1.add(Ccontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 160, -1));
+        Contrasña.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jPanel1.add(Contrasña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 160, -1));
 
-        Registrar.setBackground(new java.awt.Color(255, 255, 255));
         Registrar.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         Registrar.setForeground(new java.awt.Color(255, 102, 0));
         Registrar.setText("Registrar");
@@ -84,7 +90,6 @@ int Xmouse,Ymouse;
         });
         jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 440, 100, 30));
 
-        Volver.setBackground(new java.awt.Color(255, 255, 255));
         Volver.setForeground(new java.awt.Color(255, 102, 0));
         Volver.setText("↩");
         Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +148,34 @@ int Xmouse,Ymouse;
         Graficap confirmado = new Graficap();
         confirmado.setVisible(true);
         this.dispose();
+        
+        String nombreUsuario = Nombredeusuario.getText();
+    String password = Contrasenas.getText();
+    String confirmarPassword = Contrasña.getText();
+
+    // Verificar que las contraseñas coincidan
+   if (password.equals(confirmarPassword)) {
+    // Encriptar la contraseña antes de almacenarla
+    String hashedPassword = PasswordHashing.hashPassword(password);
+
+    // Lógica de registro en la base de datos
+    con.registrarUsuario(nombreUsuario, hashedPassword);
+    JOptionPane.showMessageDialog(this, "Usuario registrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+    // Cerrar la ventana actual o realizar otras acciones según sea necesario
+    this.dispose();
+   } else {
+    JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    // Llamar al método para registrar usuario
+    con.registrarUsuario(nombreUsuario, password);
+                                 
     }//GEN-LAST:event_RegistrarActionPerformed
+
+    private void NombredeusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombredeusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombredeusuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,13 +213,13 @@ int Xmouse,Ymouse;
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Ccontraseña;
     private javax.swing.JLabel ConfirmarContraseña;
+    private javax.swing.JTextField Contrasenas;
     private javax.swing.JLabel Contraseña;
-    private javax.swing.JTextField Contraseñas;
+    private javax.swing.JTextField Contrasña;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Logo;
-    private javax.swing.JTextField Nombredeusaio;
+    private javax.swing.JTextField Nombredeusuario;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Volver;
     private javax.swing.JLabel jLabel1;
