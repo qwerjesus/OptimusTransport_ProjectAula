@@ -69,6 +69,11 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 160, -1));
 
         Contrasenas.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        Contrasenas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContrasenasActionPerformed(evt);
+            }
+        });
         jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
 
         ConfirmarContraseña.setBackground(new java.awt.Color(255, 255, 255));
@@ -176,6 +181,10 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     private void NombredeusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombredeusuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombredeusuarioActionPerformed
+
+    private void ContrasenasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenasActionPerformed
 
     /**
      * @param args the command line arguments

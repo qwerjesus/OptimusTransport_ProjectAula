@@ -3,10 +3,7 @@ package views;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Horarios;
-import model.Horarios;
 import model.Tabla;
-import model.Tabla;
-import views.Graficap;
 
 public class TablaAdmin extends javax.swing.JFrame {
       int xMouse,yMouse;
