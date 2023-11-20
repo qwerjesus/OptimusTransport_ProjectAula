@@ -48,6 +48,7 @@ public class Mapa_de_invitado extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Regresar.setBackground(new java.awt.Color(255, 255, 255));
         Regresar.setForeground(new java.awt.Color(255, 102, 0));
         Regresar.setText("↩");
         Regresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
