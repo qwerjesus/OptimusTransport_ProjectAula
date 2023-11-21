@@ -7,11 +7,13 @@ import conexion.conex;
 public class RegistroDeusuarios extends javax.swing.JFrame {
     conex con = new conex();
     int Xmouse,Ymouse;
-    
+     
     public RegistroDeusuarios() {
         initComponents();
         con.conectarBD(); 
         this.setLocationRelativeTo(null);
+        this.OCULTAR.setVisible(false);
+        this.OCULTARC.setVisible(false);
     }
 
 
@@ -24,10 +26,14 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         Nombredeusuario = new javax.swing.JTextField();
         Contraseña = new javax.swing.JLabel();
-        Contrasenas = new javax.swing.JTextField();
         ConfirmarContraseña = new javax.swing.JLabel();
-        Contrasña = new javax.swing.JTextField();
+        Contrasenas = new javax.swing.JPasswordField();
+        Contrasña = new javax.swing.JPasswordField();
         Registrar = new javax.swing.JButton();
+        VER = new javax.swing.JLabel();
+        VERC = new javax.swing.JLabel();
+        OCULTARC = new javax.swing.JLabel();
+        OCULTAR = new javax.swing.JLabel();
         Volver = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -54,6 +60,7 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         Logo.setText("jLabel2");
         jPanel1.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 280, 250));
 
+        Nombredeusuario.setBackground(new java.awt.Color(255, 255, 255));
         Nombredeusuario.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         Nombredeusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +75,7 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         Contraseña.setText("Contraseña:");
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 160, -1));
 
+
         Contrasenas.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         Contrasenas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,15 +84,30 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         });
         jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
 
+      
         ConfirmarContraseña.setBackground(new java.awt.Color(255, 255, 255));
         ConfirmarContraseña.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         ConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmarContraseña.setText("Confirmar contraseña:");
         jPanel1.add(ConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
-        Contrasña.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        Contrasenas.setBackground(new java.awt.Color(255, 255, 255));
+        Contrasenas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContrasenasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
+
+        Contrasña.setBackground(new java.awt.Color(255, 255, 255));
+        Contrasña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContrasñaActionPerformed(evt);
+            }
+        });
         jPanel1.add(Contrasña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 160, -1));
 
+        Registrar.setBackground(new java.awt.Color(255, 255, 255));
         Registrar.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         Registrar.setForeground(new java.awt.Color(255, 102, 0));
         Registrar.setText("Registrar");
@@ -95,6 +118,39 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         });
         jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 440, 100, 30));
 
+        VER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver_32px.png"))); // NOI18N
+        VER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VERMousePressed(evt);
+            }
+        });
+        jPanel1.add(VER, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 30, 40));
+
+        VERC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver_32px.png"))); // NOI18N
+        VERC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VERCMousePressed(evt);
+            }
+        });
+        jPanel1.add(VERC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
+
+        OCULTARC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ocultar_32px.png"))); // NOI18N
+        OCULTARC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                OCULTARCMousePressed(evt);
+            }
+        });
+        jPanel1.add(OCULTARC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
+
+        OCULTAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ocultar_32px.png"))); // NOI18N
+        OCULTAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                OCULTARMousePressed(evt);
+            }
+        });
+        jPanel1.add(OCULTAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 342, -1, 40));
+
+        Volver.setBackground(new java.awt.Color(255, 255, 255));
         Volver.setForeground(new java.awt.Color(255, 102, 0));
         Volver.setText("↩");
         Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +158,7 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
                 VolverActionPerformed(evt);
             }
         });
-        jPanel1.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+        jPanel1.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 30));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fotoram.io.jpg"))); // NOI18N
         jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 500));
@@ -112,16 +168,21 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
                 jPanel2MouseDragged(evt);
             }
         });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 40));
@@ -155,8 +216,8 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         this.dispose();
         
         String nombreUsuario = Nombredeusuario.getText();
-    String password = Contrasenas.getText();
-    String confirmarPassword = Contrasña.getText();
+        String password = Contrasenas.getText();
+        String confirmarPassword = Contrasña.getText();
 
     // Verificar que las contraseñas coincidan
    if (password.equals(confirmarPassword)) {
@@ -185,6 +246,41 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     private void ContrasenasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContrasenasActionPerformed
+
+
+    private void ContrasñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasñaActionPerformed
+
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+         Xmouse=evt.getX();
+      Ymouse=evt.getY();
+       
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void VERMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERMousePressed
+       VER.setVisible(false);
+        OCULTAR.setVisible(true);
+        Contrasenas.setEchoChar((char)0);
+    }//GEN-LAST:event_VERMousePressed
+
+    private void OCULTARMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OCULTARMousePressed
+        VER.setVisible(true);
+        OCULTAR.setVisible(false);
+        Contrasenas.setEchoChar('●');
+    }//GEN-LAST:event_OCULTARMousePressed
+
+    private void VERCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERCMousePressed
+       VERC.setVisible(false);
+       OCULTARC.setVisible(true);
+       Contrasña.setEchoChar((char)0);
+    }//GEN-LAST:event_VERCMousePressed
+
+    private void OCULTARCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OCULTARCMousePressed
+        VERC.setVisible(true);
+       OCULTARC.setVisible(false);
+       Contrasña.setEchoChar('●');
+    }//GEN-LAST:event_OCULTARCMousePressed
 
     /**
      * @param args the command line arguments
@@ -223,13 +319,17 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmarContraseña;
-    private javax.swing.JTextField Contrasenas;
+    private javax.swing.JPasswordField Contrasenas;
     private javax.swing.JLabel Contraseña;
-    private javax.swing.JTextField Contrasña;
+    private javax.swing.JPasswordField Contrasña;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Logo;
     private javax.swing.JTextField Nombredeusuario;
+    private javax.swing.JLabel OCULTAR;
+    private javax.swing.JLabel OCULTARC;
     private javax.swing.JButton Registrar;
+    private javax.swing.JLabel VER;
+    private javax.swing.JLabel VERC;
     private javax.swing.JButton Volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -6,16 +6,19 @@ import org.jxmapviewer.viewer.TileFactoryInfo;
 import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCenter;
-
+import views.Graficap;
 
 public class MenuDeInicio extends javax.swing.JFrame {
      int Xmouse,Ymouse;
      
-   
+    Graficap nombres = new Graficap();
+     
+      
     public MenuDeInicio() {
         initComponents();
         init();
         this.setLocationRelativeTo(null);
+       
     }
     
     private void init(){
@@ -40,27 +43,66 @@ public class MenuDeInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        Menu = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        Avatar = new javax.swing.JLabel();
-        CerrarSeion = new javax.swing.JButton();
-        Nombre = new javax.swing.JLabel();
-        Crutas = new javax.swing.JButton();
-        CyH = new javax.swing.JButton();
-        Mapa = new javax.swing.JButton();
         jXMapViewer = new org.jxmapviewer.JXMapViewer();
+        Nombre = new javax.swing.JLabel();
+        CyH = new javax.swing.JButton();
+        Menu = new javax.swing.JLabel();
+        Mapa = new javax.swing.JButton();
+        CerrarSeion = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 440, 490));
+
+        Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
+        getContentPane().add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        CyH.setBackground(new java.awt.Color(255, 255, 255));
+        CyH.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
+        CyH.setForeground(new java.awt.Color(255, 102, 0));
+        CyH.setText("Codigos y Horarios");
+        CyH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CyHActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CyH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 180, 40));
+
+        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fotoram.io-removebg-preview.png"))); // NOI18N
+        getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 250));
+
+        Mapa.setBackground(new java.awt.Color(255, 255, 255));
+        Mapa.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
+        Mapa.setForeground(new java.awt.Color(255, 102, 0));
+        Mapa.setText("Mapa");
+        Mapa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 180, 40));
+
+        CerrarSeion.setBackground(new java.awt.Color(255, 255, 255));
+        CerrarSeion.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
+        CerrarSeion.setForeground(new java.awt.Color(255, 102, 0));
+        CerrarSeion.setText("Cerrar sesion ");
+        CerrarSeion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarSeionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CerrarSeion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 180, 40));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Captura de pantalla 2023-10-29 141202.png"))); // NOI18N
-        Menu.setText("jLabel1");
-        jPanel3.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 50, 240, 250));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/_1f8f22fe-4b23-431e-9192-bfaf5163204d.jpeg"))); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -74,50 +116,7 @@ public class MenuDeInicio extends javax.swing.JFrame {
             }
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Avatar.setForeground(new java.awt.Color(255, 255, 255));
-        Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.jpg"))); // NOI18N
-        Avatar.setText("jLabel2");
-        jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, -1));
-
-        CerrarSeion.setFont(new java.awt.Font("Black Carrot", 0, 10)); // NOI18N
-        CerrarSeion.setForeground(new java.awt.Color(255, 102, 0));
-        CerrarSeion.setText("Cerrar sesion ");
-        CerrarSeion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarSeionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CerrarSeion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 170, 50));
-
-        Nombre.setBackground(new java.awt.Color(255, 255, 255));
-        Nombre.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        Nombre.setForeground(new java.awt.Color(255, 102, 0));
-        Nombre.setText("nombre");
-        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 6, 170, 40));
-
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 50));
-
-        Crutas.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        Crutas.setForeground(new java.awt.Color(255, 102, 0));
-        Crutas.setText("Consultar Rutas");
-        jPanel3.add(Crutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 180, 40));
-
-        CyH.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
-        CyH.setForeground(new java.awt.Color(255, 102, 0));
-        CyH.setText("Codigos y Horarios");
-        jPanel3.add(CyH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 180, 40));
-
-        Mapa.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        Mapa.setForeground(new java.awt.Color(255, 102, 0));
-        Mapa.setText("Mapa");
-        Mapa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MapaActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 180, 40));
-        jPanel3.add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 440, 440));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 490));
 
@@ -146,6 +145,12 @@ public class MenuDeInicio extends javax.swing.JFrame {
       mapa.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_MapaActionPerformed
+
+    private void CyHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CyHActionPerformed
+       Rutas mrutas = new Rutas();
+       mrutas.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_CyHActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,13 +188,12 @@ public class MenuDeInicio extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Avatar;
     private javax.swing.JButton CerrarSeion;
-    private javax.swing.JButton Crutas;
     private javax.swing.JButton CyH;
     private javax.swing.JButton Mapa;
     private javax.swing.JLabel Menu;
     private javax.swing.JLabel Nombre;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private org.jxmapviewer.JXMapViewer jXMapViewer;
