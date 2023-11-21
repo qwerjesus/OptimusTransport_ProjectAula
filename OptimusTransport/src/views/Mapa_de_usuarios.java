@@ -10,10 +10,10 @@ import org.jxmapviewer.viewer.GeoPosition;
 import org.jxmapviewer.viewer.TileFactoryInfo;
 
 
-public class Mapa_de_invitado extends javax.swing.JFrame {
+public class Mapa_de_usuarios extends javax.swing.JFrame {
     int Xmouse,Ymouse;
     
-    public Mapa_de_invitado() { 
+    public Mapa_de_usuarios() { 
         initComponents();
         init();
         this.setLocationRelativeTo(null);
@@ -109,7 +109,7 @@ public class Mapa_de_invitado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
-       Graficap initados = new Graficap();
+       MenuDeInicio initados = new MenuDeInicio();
        initados.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_RegresarActionPerformed

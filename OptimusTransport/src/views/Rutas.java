@@ -1,18 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
 
-/**
- *
- * @author cjpp1
- */
+import java.awt.AWTException;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Rutas extends javax.swing.JFrame {
-  int xMouse,yMouse;
+    
+    public static String mensaje;
+    public static String lugar;
+    
+    int xMouse,yMouse;
     public Rutas() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.x1.setVisible(false);
+        this.x2.setVisible(false);
+        this.x3.setVisible(false);
+        this.x4.setVisible(false);
+        this.x5.setVisible(false);
     }
 
     /**
@@ -27,16 +33,17 @@ public class Rutas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         BRutas = new javax.swing.JComboBox<>();
-        BCodigas = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        Codigos = new javax.swing.JLabel();
-        Horar = new javax.swing.JTextField();
-        ora = new javax.swing.JLabel();
+        BUSCAR = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        x1 = new javax.swing.JLabel();
+        x2 = new javax.swing.JLabel();
+        x3 = new javax.swing.JLabel();
+        x4 = new javax.swing.JLabel();
+        x5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        FONDO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -58,7 +65,7 @@ public class Rutas extends javax.swing.JFrame {
         BRutas.setBackground(new java.awt.Color(255, 255, 255));
         BRutas.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         BRutas.setForeground(new java.awt.Color(255, 102, 0));
-        BRutas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BRutas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X101", "X102", "X103", "X104", "X105" }));
         BRutas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BRutasActionPerformed(evt);
@@ -66,33 +73,22 @@ public class Rutas extends javax.swing.JFrame {
         });
         jPanel1.add(BRutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 140, 30));
 
-        BCodigas.setBackground(new java.awt.Color(255, 255, 255));
-        BCodigas.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
-        BCodigas.setForeground(new java.awt.Color(255, 102, 0));
-        BCodigas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(BCodigas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 90, 30));
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Rutas");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 60, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 60, -1));
 
-        Codigos.setBackground(new java.awt.Color(255, 255, 255));
-        Codigos.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        Codigos.setForeground(new java.awt.Color(255, 255, 255));
-        Codigos.setText("Codigos");
-        jPanel1.add(Codigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
-
-        Horar.setBackground(new java.awt.Color(255, 255, 255));
-        Horar.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
-        Horar.setForeground(new java.awt.Color(255, 102, 0));
-        jPanel1.add(Horar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 200, 30));
-
-        ora.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        ora.setForeground(new java.awt.Color(255, 255, 255));
-        ora.setText("Horario de salida-llegada");
-        jPanel1.add(ora, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 210, -1));
+        BUSCAR.setBackground(new java.awt.Color(255, 255, 255));
+        BUSCAR.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
+        BUSCAR.setForeground(new java.awt.Color(255, 102, 0));
+        BUSCAR.setText("Buscar");
+        BUSCAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BUSCARActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 90, 30));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
@@ -109,35 +105,40 @@ public class Rutas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 180, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 460));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 470, 400));
+        x1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x1.jpg"))); // NOI18N
+        jPanel1.add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 450, 440));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setForeground(new java.awt.Color(255, 102, 0));
+        x2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.jpg"))); // NOI18N
+        jPanel1.add(x2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+
+        x3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x3.jpg"))); // NOI18N
+        jPanel1.add(x3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 660, 450));
+
+        x4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x4.jpg"))); // NOI18N
+        jPanel1.add(x4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 700, 460));
+
+        x5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x5.jpg"))); // NOI18N
+        jPanel1.add(x5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 690, 470));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/_1f8f22fe-4b23-431e-9192-bfaf5163204d.jpeg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -60, -1, -1));
+
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
             }
         });
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanel3MousePressed(evt);
             }
         });
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 40));
-
-        FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fotoram.io.jpg"))); // NOI18N
-        FONDO.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                FONDOMouseDragged(evt);
-            }
-        });
-        jPanel1.add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 500));
 
@@ -154,17 +155,9 @@ public class Rutas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BRutasActionPerformed
 
-    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
-        xMouse = evt.getX();
-        yMouse=evt.getY();
-    }//GEN-LAST:event_jPanel3MousePressed
-
-    private void FONDOMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FONDOMouseDragged
-        int x = evt.getXOnScreen();
-       int y = evt.getYOnScreen();
-        this.setLocation(x -xMouse,y -yMouse);
-
-    }//GEN-LAST:event_FONDOMouseDragged
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+       
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
          int x = evt.getXOnScreen();
@@ -172,54 +165,216 @@ public class Rutas extends javax.swing.JFrame {
         this.setLocation(x -xMouse,y -yMouse);
     }//GEN-LAST:event_jPanel3MouseDragged
 
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+      xMouse=evt.getX();
+       yMouse=evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
+    private void BUSCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUSCARActionPerformed
+    
+    Random random = new Random();
+        
+    int BR = BRutas.getSelectedIndex();
+    
+//    rutas con relacion a sus paradas o estaciones.
+    String [] x102 = {"Patio Portal","Madre Bernarda",
+                      "Bazurto", "Delicias", "Lo amador",
+                      "Centro", "Bodeguita"};
+    
+    String [] x101 = {"Ejecutivos","Villa Olimpica",
+                      "Cuatro Vientos", "Republica del libano", "Espana",
+                      "Maria Auxiliadora", "Bazurto", "Chambacu",
+                      "Centro", "Bodeguita"};
+    
+    String [] x103 = {"Patio Portal","El Prado",
+                      "Bazurto", "Delicias",
+                      "Centro", "Bodeguita"};
+    
+    String [] x104 = {"Bazurto", "El Prado","La Popa",
+                      "Chambacu","Centro", "Bodeguita"};
+    
+    String [] x105 = {"Bazurto", "El Prado","La Popa",
+                      "Chambacu","Centro", "Bodeguita"};
+    
+    
+    if (BR >= 0) {
+        
+        Notificacion notificar = new Notificacion();
+        
+        switch (BR) {
+            case 0:
+                x1.setVisible(true);
+                x2.setVisible(false);
+                x3.setVisible(false);
+                x4.setVisible(false);
+                x5.setVisible(false);
+                
+                // Obtener un índice aleatorio
+                int indiceAleatorio = random.nextInt(x101.length);
+                // Obtener el lugar aleatorio
+                lugar = x102[indiceAleatorio];
+                
+                mensaje = "el bus de la ruta X101 se encuentra ";
+                
+            {
+                try {
+                    notificar.mje();
+                } catch (AWTException ex) {
+                    Logger.getLogger(Rutas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                
+                
+                break;
+
+            case 1:
+                x1.setVisible(false);
+                x2.setVisible(true);
+                x3.setVisible(false);
+                x4.setVisible(false);
+                x5.setVisible(false);
+                
+                // Obtener un índice aleatorio
+                int indiceAleatorio1 = random.nextInt(x101.length);
+                // Obtener el lugar aleatorio
+                lugar = x102[indiceAleatorio1];
+                 mensaje = "el bus de la ruta X102 se encuentra ";
+                
+            {
+                try {
+                    notificar.mje();
+                } catch (AWTException ex) {
+                    Logger.getLogger(Rutas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                
+                break;
+            case 2:
+                x1.setVisible(false);
+                x2.setVisible(false);
+                x3.setVisible(true);
+                x4.setVisible(false);
+                x5.setVisible(false);
+                // Obtener un índice aleatorio
+                int indiceAleatorio2 = random.nextInt(x101.length);
+                // Obtener el lugar aleatorio
+                lugar = x102[indiceAleatorio2];
+                mensaje = "el bus de la ruta X103 se encuentra "; 
+                
+            {
+                try {
+                    notificar.mje();
+                } catch (AWTException ex) {
+                    Logger.getLogger(Rutas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                break;
+            case 3:
+                x1.setVisible(false);
+                x2.setVisible(false);
+                x3.setVisible(false);
+                x4.setVisible(true);
+                x5.setVisible(false);
+                
+                // Obtener un índice aleatorio
+                int indiceAleatorio3 = random.nextInt(x101.length);
+                // Obtener el lugar aleatorio
+                lugar = x102[indiceAleatorio3];
+                 mensaje = "el bus de la ruta X104";
+                
+            {
+                try {
+                    notificar.mje();
+                } catch (AWTException ex) {
+                    Logger.getLogger(Rutas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+                break;
+            case 4:
+                x1.setVisible(false);
+                x2.setVisible(false);
+                x3.setVisible(false);
+                x4.setVisible(false);
+                x5.setVisible(true);
+                
+                // Obtener un índice aleatorio
+                int indiceAleatorio4 = random.nextInt(x101.length);
+                // Obtener el lugar aleatorio
+                lugar = x102[indiceAleatorio4];
+                mensaje = "el bus de la ruta X105 se encuentra";
+                
+            {
+                try {
+                    notificar.mje();
+                } catch (AWTException ex) {
+                    Logger.getLogger(Rutas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                
+                break;
+            default:
+                x1.setVisible(false);
+                x2.setVisible(false);
+                x3.setVisible(false);
+                x4.setVisible(false);
+                x5.setVisible(false);
+                break;
+        }
+    }
+
+    }//GEN-LAST:event_BUSCARActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Rutas().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Rutas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Rutas().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BCodigas;
     private javax.swing.JComboBox<String> BRutas;
-    private javax.swing.JLabel Codigos;
-    private javax.swing.JLabel FONDO;
-    private javax.swing.JTextField Horar;
+    private javax.swing.JButton BUSCAR;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel ora;
+    private javax.swing.JLabel x1;
+    private javax.swing.JLabel x2;
+    private javax.swing.JLabel x3;
+    private javax.swing.JLabel x4;
+    private javax.swing.JLabel x5;
     // End of variables declaration//GEN-END:variables
 }

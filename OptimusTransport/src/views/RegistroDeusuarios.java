@@ -75,16 +75,6 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         Contraseña.setText("Contraseña:");
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 160, -1));
 
-
-        Contrasenas.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        Contrasenas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContrasenasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
-
-      
         ConfirmarContraseña.setBackground(new java.awt.Color(255, 255, 255));
         ConfirmarContraseña.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         ConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,6 +208,16 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         String nombreUsuario = Nombredeusuario.getText();
         String password = Contrasenas.getText();
         String confirmarPassword = Contrasña.getText();
+    
+//        verificar campos null
+        if (nombreUsuario.isEmpty() || password.isEmpty() || confirmarPassword.isEmpty()) {
+
+        JOptionPane.showMessageDialog(this,
+                "Por favor, complete todos los campos antes de registrar.",
+                "Campos Vacíos",
+                JOptionPane.WARNING_MESSAGE);
+        return;  // Salir del método si algún campo está vacío
+    }
 
     // Verificar que las contraseñas coincidan
    if (password.equals(confirmarPassword)) {
