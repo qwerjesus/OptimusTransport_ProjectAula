@@ -209,7 +209,14 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         String password = Contrasenas1.getText();
         String confirmarPassword = Contrasña.getText();
     // Verificar que los campos no estén vacíos
-   
+   if (nombreUsuario.isEmpty() || password.isEmpty() || confirmarPassword.isEmpty()) {
+      
+        JOptionPane.showMessageDialog(this,
+                "Por favor, complete todos los campos antes de registrar.",
+                "Campos Vacíos",
+                JOptionPane.WARNING_MESSAGE);
+        return;  // Salir del método si algún campo está vacío
+    }
     // Verificar que las contraseñas coincidan
    if (password.equals(confirmarPassword)) {
     // Encriptar la contraseña antes de almacenarla
