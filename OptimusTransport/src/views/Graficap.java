@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
+ 
 public class Graficap extends javax.swing.JFrame {
     conex con = new conex();
     Connection cn = (Connection) con.conectarBD();
@@ -16,7 +16,7 @@ public class Graficap extends javax.swing.JFrame {
     public Graficap() {
         initComponents();
         this.setLocationRelativeTo(null);
-       
+       this.OCULTAR.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,6 +33,8 @@ public class Graficap extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Registrar = new javax.swing.JButton();
         Invitado = new javax.swing.JButton();
+        OCULTAR = new javax.swing.JLabel();
+        VER = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         inicioSesion = new javax.swing.JLabel();
         Inicio = new javax.swing.JLabel();
@@ -57,17 +59,22 @@ public class Graficap extends javax.swing.JFrame {
         jPanel1.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 180, 20));
 
         contraseña.setBackground(new java.awt.Color(255, 255, 255));
+        contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                contraseñaMousePressed(evt);
+            }
+        });
         contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñaActionPerformed(evt);
             }
         });
-        jPanel1.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 180, -1));
+        jPanel1.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 140, -1));
 
         Contraseña.setBackground(new java.awt.Color(255, 51, 51));
         Contraseña.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         Contraseña.setForeground(new java.awt.Color(255, 255, 255));
-        Contraseña.setText("clave:");
+        Contraseña.setText("Contraseña");
         jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 120, 30));
 
         Usua.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,6 +143,22 @@ public class Graficap extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Invitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, 30));
+
+        OCULTAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ocultar_32px.png"))); // NOI18N
+        OCULTAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                OCULTARMousePressed(evt);
+            }
+        });
+        jPanel1.add(OCULTAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, 40));
+
+        VER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver_32px.png"))); // NOI18N
+        VER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VERMousePressed(evt);
+            }
+        });
+        jPanel1.add(VER, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, 40));
 
         jLabel2.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,6 +292,22 @@ public class Graficap extends javax.swing.JFrame {
       
     }//GEN-LAST:event_InvitadoActionPerformed
 
+    private void VERMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERMousePressed
+         VER.setVisible(false);
+        OCULTAR.setVisible(true);
+        contraseña.setEchoChar((char)0);
+    }//GEN-LAST:event_VERMousePressed
+
+    private void contraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaMousePressed
+    
+    }//GEN-LAST:event_contraseñaMousePressed
+
+    private void OCULTARMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OCULTARMousePressed
+      VER.setVisible(true);
+        OCULTAR.setVisible(false);
+        contraseña.setEchoChar('●');
+    }//GEN-LAST:event_OCULTARMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -309,10 +348,12 @@ public class Graficap extends javax.swing.JFrame {
     private javax.swing.JButton IniciarSeicion;
     private javax.swing.JLabel Inicio;
     private javax.swing.JButton Invitado;
+    private javax.swing.JLabel OCULTAR;
     private javax.swing.JButton Registrar;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel Usua;
     private javax.swing.JTextField Usuario;
+    private javax.swing.JLabel VER;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JLabel inicioSesion;
     private javax.swing.JLabel jLabel1;
