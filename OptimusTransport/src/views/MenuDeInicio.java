@@ -12,15 +12,16 @@ public class MenuDeInicio extends javax.swing.JFrame {
      int Xmouse,Ymouse;
      
     Graficap nombres = new Graficap();
-     
+     private String Nombres;
       
     public MenuDeInicio() {
         initComponents();
         init();
         this.setLocationRelativeTo(null);
        
-    }
     
+    
+    }
     private void init(){
         TileFactoryInfo info = new OSMTileFactoryInfo();
         DefaultTileFactory tileFactory = new DefaultTileFactory(info);
@@ -46,9 +47,9 @@ public class MenuDeInicio extends javax.swing.JFrame {
         jXMapViewer = new org.jxmapviewer.JXMapViewer();
         Nombre = new javax.swing.JLabel();
         CyH = new javax.swing.JButton();
-        Menu = new javax.swing.JLabel();
         Mapa = new javax.swing.JButton();
         CerrarSeion = new javax.swing.JButton();
+        Menu = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -56,7 +57,7 @@ public class MenuDeInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 440, 490));
+        getContentPane().add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 440, 430));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
         Nombre.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -72,9 +73,6 @@ public class MenuDeInicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CyH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 180, 40));
-
-        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fotoram.io-removebg-preview.png"))); // NOI18N
-        getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 250));
 
         Mapa.setBackground(new java.awt.Color(255, 255, 255));
         Mapa.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -97,6 +95,9 @@ public class MenuDeInicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CerrarSeion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 180, 40));
+
+        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fotoram.io-removebg-preview.png"))); // NOI18N
+        getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 210, 190));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,7 +142,7 @@ public class MenuDeInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void MapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaActionPerformed
-      Mapa_de_invitado mapa = new Mapa_de_invitado();
+      Mapa_de_usuarios mapa = new Mapa_de_usuarios();
       mapa.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_MapaActionPerformed
