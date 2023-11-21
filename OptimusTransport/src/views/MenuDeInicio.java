@@ -141,7 +141,7 @@ public class MenuDeInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void MapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaActionPerformed
-      Mapa_de_invitado mapa = new Mapa_de_invitado();
+      Mapa_de_usuarios mapa = new Mapa_de_usuarios();
       mapa.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_MapaActionPerformed
