@@ -14,8 +14,14 @@ public class Rutas extends javax.swing.JFrame {
     public Rutas() {
         initComponents();
         this.setLocationRelativeTo(null);
+
+        this.x1.setVisible(false);
+        this.x2.setVisible(false);
+        this.x3.setVisible(false);
+
         this.PRUEBA.setVisible(false);
            
+
     }
 
     /**
@@ -31,6 +37,14 @@ public class Rutas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Codigos = new javax.swing.JLabel();
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        x1 = new javax.swing.JLabel();
+        x2 = new javax.swing.JLabel();
+        x3 = new javax.swing.JLabel();
+
         Buscar = new javax.swing.JButton();
         Rutas = new javax.swing.JComboBox<>();
         codgos = new javax.swing.JComboBox<>();
@@ -38,6 +52,7 @@ public class Rutas extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         PRUEBA = new javax.swing.JLabel();
+
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -62,13 +77,18 @@ public class Rutas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Rutas");
+
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 60, -1));
+
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 60, -1));
+
 
         Codigos.setBackground(new java.awt.Color(255, 255, 255));
         Codigos.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         Codigos.setForeground(new java.awt.Color(255, 255, 255));
         Codigos.setText("Codigos");
         jPanel1.add(Codigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
+
 
         Buscar.setBackground(new java.awt.Color(255, 255, 255));
         Buscar.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -108,11 +128,29 @@ public class Rutas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 460));
+
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 450));
+
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+
+        x1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x1.jpg"))); // NOI18N
+        jPanel2.add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 450, 440));
+
+        x2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.jpg"))); // NOI18N
+        jPanel2.add(x2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        x3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x3.jpg"))); // NOI18N
+        jPanel2.add(x3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, -60, 650, 560));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 470, 400));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/_1f8f22fe-4b23-431e-9192-bfaf5163204d.jpeg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -60, -1, -1));
 
         PRUEBA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Rutas_X_101.png"))); // NOI18N
         jPanel2.add(PRUEBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1780, 1880));
@@ -123,12 +161,16 @@ public class Rutas extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/_1f8f22fe-4b23-431e-9192-bfaf5163204d.jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -16, 1140, 1060));
 
+
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
             }
         });
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanel3MousePressed(evt);
             }
@@ -146,10 +188,19 @@ public class Rutas extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRutasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BRutasActionPerformed
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+       
+    }//GEN-LAST:event_jPanel3MouseClicked
+
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
         xMouse = evt.getX();
         yMouse=evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
+
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
          int x = evt.getXOnScreen();
@@ -157,10 +208,16 @@ public class Rutas extends javax.swing.JFrame {
         this.setLocation(x -xMouse,y -yMouse);
     }//GEN-LAST:event_jPanel3MouseDragged
 
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+      xMouse=evt.getX();
+       yMouse=evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
      PRUEBA.setVisible(true);
               
     }//GEN-LAST:event_BuscarActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -200,9 +257,11 @@ public class Rutas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
     private javax.swing.JLabel Codigos;
+
     private javax.swing.JLabel PRUEBA;
     private javax.swing.JComboBox<String> Rutas;
     private javax.swing.JComboBox<String> codgos;
+
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -211,5 +270,10 @@ public class Rutas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+
+    private javax.swing.JLabel x1;
+    private javax.swing.JLabel x2;
+    private javax.swing.JLabel x3;
+
     // End of variables declaration//GEN-END:variables
 }
