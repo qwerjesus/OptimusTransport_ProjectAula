@@ -31,11 +31,9 @@ public class Rutas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Codigos = new javax.swing.JLabel();
-        Horar = new javax.swing.JTextField();
-        ora = new javax.swing.JLabel();
-        RUTAS = new javax.swing.JTextField();
-        CODIGOS = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
+        Rutas = new javax.swing.JComboBox<>();
+        codgos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -64,7 +62,7 @@ public class Rutas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Rutas");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 60, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 60, -1));
 
         Codigos.setBackground(new java.awt.Color(255, 255, 255));
         Codigos.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
@@ -72,34 +70,28 @@ public class Rutas extends javax.swing.JFrame {
         Codigos.setText("Codigos");
         jPanel1.add(Codigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
 
-        Horar.setBackground(new java.awt.Color(255, 255, 255));
-        Horar.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
-        Horar.setForeground(new java.awt.Color(255, 102, 0));
-        jPanel1.add(Horar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 200, 30));
-
-        ora.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        ora.setForeground(new java.awt.Color(255, 255, 255));
-        ora.setText("Horario de salida-llegada");
-        jPanel1.add(ora, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 210, -1));
-
-        RUTAS.setBackground(new java.awt.Color(255, 255, 255));
-        RUTAS.setForeground(new java.awt.Color(255, 102, 0));
-        jPanel1.add(RUTAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 110, 30));
-
-        CODIGOS.setBackground(new java.awt.Color(255, 255, 255));
-        CODIGOS.setForeground(new java.awt.Color(255, 102, 0));
-        jPanel1.add(CODIGOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 100, 30));
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jButton2.setText("Buscar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setBackground(new java.awt.Color(255, 255, 255));
+        Buscar.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
+        Buscar.setForeground(new java.awt.Color(255, 102, 0));
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 100, 100, -1));
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 100, -1));
+
+        Rutas.setBackground(new java.awt.Color(255, 255, 255));
+        Rutas.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
+        Rutas.setForeground(new java.awt.Color(255, 102, 0));
+        Rutas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", " " }));
+        jPanel1.add(Rutas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 90, -1));
+
+        codgos.setBackground(new java.awt.Color(255, 255, 255));
+        codgos.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
+        codgos.setForeground(new java.awt.Color(255, 102, 0));
+        codgos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", " " }));
+        jPanel1.add(codgos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 90, -1));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
@@ -116,14 +108,14 @@ public class Rutas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 190, 270));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, 450));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRUEBA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Rutas_X_101.png"))); // NOI18N
-        jPanel2.add(PRUEBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1780, 1840));
+        jPanel2.add(PRUEBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1780, 1880));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 470, 360));
 
@@ -165,10 +157,10 @@ public class Rutas extends javax.swing.JFrame {
         this.setLocation(x -xMouse,y -yMouse);
     }//GEN-LAST:event_jPanel3MouseDragged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
      PRUEBA.setVisible(true);
               
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,13 +198,12 @@ public class Rutas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CODIGOS;
+    private javax.swing.JButton Buscar;
     private javax.swing.JLabel Codigos;
-    private javax.swing.JTextField Horar;
     private javax.swing.JLabel PRUEBA;
-    private javax.swing.JTextField RUTAS;
+    private javax.swing.JComboBox<String> Rutas;
+    private javax.swing.JComboBox<String> codgos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -220,7 +211,6 @@ public class Rutas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel ora;
     // End of variables declaration//GEN-END:variables
 }
 =======
