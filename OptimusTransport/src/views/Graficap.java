@@ -230,7 +230,7 @@ public class Graficap extends javax.swing.JFrame {
 //        }
         
          // Lógica de verificación en la base de datos
-        if (verificarUsuario(nombreUsuario, password)) {
+        else if (verificarUsuario(nombreUsuario, password)) {
             // Si los datos son correctos, abrir la nueva ventana
             MenuDeInicio menu = new MenuDeInicio();
             menu.setVisible(true);
