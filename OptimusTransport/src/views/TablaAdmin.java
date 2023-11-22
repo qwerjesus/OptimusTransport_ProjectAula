@@ -1,4 +1,3 @@
-
 package views;
 
 import javax.swing.JOptionPane;
@@ -56,7 +55,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaAdmin.setBackground(new java.awt.Color(255, 255, 255));
         tablaAdmin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         tablaAdmin.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         tablaAdmin.setForeground(new java.awt.Color(255, 153, 102));
@@ -78,7 +76,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         jLabel1.setText("Horarios y rutas");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 200, 40));
 
-        TxtRuta.setBackground(new java.awt.Color(255, 255, 255));
         TxtRuta.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         TxtRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +96,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         jLabel3.setText("Nombre Ruta");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
 
-        TxtNombreRuta.setBackground(new java.awt.Color(255, 255, 255));
         TxtNombreRuta.setFont(new java.awt.Font("Roboto Light", 2, 14)); // NOI18N
         TxtNombreRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +104,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(TxtNombreRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 161, -1));
 
-        MetodoAñadirRuta.setBackground(new java.awt.Color(255, 255, 255));
         MetodoAñadirRuta.setFont(new java.awt.Font("Roboto Black", 3, 18)); // NOI18N
         MetodoAñadirRuta.setForeground(new java.awt.Color(255, 102, 0));
         MetodoAñadirRuta.setText("Añadir");
@@ -119,7 +114,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(MetodoAñadirRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
-        MetodoEliminarRuta.setBackground(new java.awt.Color(255, 255, 255));
         MetodoEliminarRuta.setFont(new java.awt.Font("Roboto Black", 3, 18)); // NOI18N
         MetodoEliminarRuta.setForeground(new java.awt.Color(255, 102, 0));
         MetodoEliminarRuta.setText("Eliminar");
@@ -130,7 +124,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(MetodoEliminarRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
 
-        MetodoEliminarTodo.setBackground(new java.awt.Color(255, 255, 255));
         MetodoEliminarTodo.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         MetodoEliminarTodo.setForeground(new java.awt.Color(255, 102, 0));
         MetodoEliminarTodo.setText("Eliminar Todo");
@@ -140,8 +133,6 @@ public class TablaAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(MetodoEliminarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
-
-        TxtAño.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(TxtAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 50, 20));
 
         Año.setBackground(new java.awt.Color(255, 255, 255));
@@ -149,9 +140,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         Año.setForeground(new java.awt.Color(255, 255, 255));
         Año.setText("Año");
         jPanel1.add(Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, -1));
-
-        TxtMes.setEditable(false);
-        TxtMes.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(TxtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 50, 20));
 
         mes.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,8 +147,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         mes.setForeground(new java.awt.Color(255, 255, 255));
         mes.setText("Mes");
         jPanel1.add(mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
-
-        TxtDia.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(TxtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 140, 50, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -168,8 +154,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Dia");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
-
-        TxtMinutos.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(TxtMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 140, 50, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -184,7 +168,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         jLabel4.setText("Hora");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
-        TxtHora.setBackground(new java.awt.Color(255, 255, 255));
         TxtHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtHoraActionPerformed(evt);
@@ -192,7 +175,6 @@ public class TablaAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(TxtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 50, 20));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
         jButton1.setText("←");
@@ -296,6 +278,10 @@ public class TablaAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNombreRutaActionPerformed
 
+    private void TxtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtHoraActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Graficap admin = new Graficap();
         admin.setVisible(true);
@@ -312,10 +298,6 @@ public class TablaAdmin extends javax.swing.JFrame {
        int y = evt.getYOnScreen();
         this.setLocation(x -xMouse,y -yMouse);
     }//GEN-LAST:event_jPanel2MouseDragged
-
-    private void TxtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtHoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtHoraActionPerformed
 
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
@@ -401,3 +383,4 @@ public class TablaAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tablaAdmin;
     // End of variables declaration//GEN-END:variables
 }
+     

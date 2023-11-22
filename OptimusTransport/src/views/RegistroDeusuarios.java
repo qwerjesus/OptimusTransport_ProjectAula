@@ -1,3 +1,4 @@
+
 package views;
 import seguridadHash.PasswordHashing;
 import javax.swing.JOptionPane;
@@ -27,7 +28,7 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         Nombredeusuario = new javax.swing.JTextField();
         Contraseña = new javax.swing.JLabel();
         ConfirmarContraseña = new javax.swing.JLabel();
-        Contrasenas1 = new javax.swing.JPasswordField();
+        Contrasenas = new javax.swing.JPasswordField();
         Contrasña = new javax.swing.JPasswordField();
         Registrar = new javax.swing.JButton();
         VER = new javax.swing.JLabel();
@@ -81,13 +82,13 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         ConfirmarContraseña.setText("Confirmar contraseña:");
         jPanel1.add(ConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
-        Contrasenas1.setBackground(new java.awt.Color(255, 255, 255));
-        Contrasenas1.addActionListener(new java.awt.event.ActionListener() {
+        Contrasenas.setBackground(new java.awt.Color(255, 255, 255));
+        Contrasenas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContrasenasActionPerformed(evt);
             }
         });
-        jPanel1.add(Contrasenas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
+        jPanel1.add(Contrasenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 160, -1));
 
         Contrasña.setBackground(new java.awt.Color(255, 255, 255));
         Contrasña.addActionListener(new java.awt.event.ActionListener() {
@@ -206,17 +207,19 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
         this.dispose();
         
         String nombreUsuario = Nombredeusuario.getText();
-        String password = Contrasenas1.getText();
+        String password = Contrasenas.getText();
         String confirmarPassword = Contrasña.getText();
-    // Verificar que los campos no estén vacíos
-   if (nombreUsuario.isEmpty() || password.isEmpty() || confirmarPassword.isEmpty()) {
-      
+    
+//        verificar campos null
+        if (nombreUsuario.isEmpty() || password.isEmpty() || confirmarPassword.isEmpty()) {
+
         JOptionPane.showMessageDialog(this,
                 "Por favor, complete todos los campos antes de registrar.",
                 "Campos Vacíos",
                 JOptionPane.WARNING_MESSAGE);
         return;  // Salir del método si algún campo está vacío
     }
+
     // Verificar que las contraseñas coincidan
    if (password.equals(confirmarPassword)) {
     // Encriptar la contraseña antes de almacenarla
@@ -225,7 +228,6 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     // Lógica de registro en la base de datos
     con.registrarUsuario(nombreUsuario, hashedPassword);
     JOptionPane.showMessageDialog(this, "Usuario registrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
 
     // Cerrar la ventana actual o realizar otras acciones según sea necesario
     this.dispose();
@@ -260,13 +262,13 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     private void VERMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERMousePressed
        VER.setVisible(false);
         OCULTAR.setVisible(true);
-        Contrasenas1.setEchoChar((char)0);
+        Contrasenas.setEchoChar((char)0);
     }//GEN-LAST:event_VERMousePressed
 
     private void OCULTARMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OCULTARMousePressed
         VER.setVisible(true);
         OCULTAR.setVisible(false);
-        Contrasenas1.setEchoChar('●');
+        Contrasenas.setEchoChar('●');
     }//GEN-LAST:event_OCULTARMousePressed
 
     private void VERCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VERCMousePressed
@@ -318,7 +320,7 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmarContraseña;
-    private javax.swing.JPasswordField Contrasenas1;
+    private javax.swing.JPasswordField Contrasenas;
     private javax.swing.JLabel Contraseña;
     private javax.swing.JPasswordField Contrasña;
     private javax.swing.JLabel Fondo;
@@ -335,3 +337,4 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
+  

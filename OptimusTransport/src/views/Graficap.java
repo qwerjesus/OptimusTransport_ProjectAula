@@ -1,4 +1,3 @@
-
 package views;
 
 import conexion.conex;
@@ -11,7 +10,7 @@ import javax.swing.JOptionPane;
 public class Graficap extends javax.swing.JFrame {
     conex con = new conex();
     Connection cn = (Connection) con.conectarBD();
-    String NAME;
+    
     int xMouse,yMouse;
     
     public Graficap() {
@@ -209,10 +208,7 @@ public class Graficap extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void IniciarSeicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSeicionActionPerformed
-          MenuDeInicio n = new MenuDeInicio();
-          NAME=Usuario.getText();
-          
-          
+         
             // Obtener el nombre de usuario y la contraseña ingresados
         String nombreUsuario = Usuario.getText();
         String password = new String(contraseña.getPassword()); // Obtener la contraseña como un String seguro
@@ -225,9 +221,9 @@ public class Graficap extends javax.swing.JFrame {
             veradmin.setVisible(true);
             this.dispose();
         }
-      
+        
+         // Lógica de verificación en la base de datos
         else if (verificarUsuario(nombreUsuario, password)) {
-
             // Si los datos son correctos, abrir la nueva ventana
             MenuDeInicio menu = new MenuDeInicio();
             menu.setVisible(true);
@@ -237,9 +233,9 @@ public class Graficap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_IniciarSeicionActionPerformed
+  
 // Método para verificar los datos del usuario en la base de datos
-// Método para verificar los datos del usuario en la base de datos
-
+  
     private boolean verificarUsuario(String nombreUsuario, String password) {
         try {
             String query = "SELECT * FROM Usuarios WHERE usuario = ? AND password = ?";
@@ -359,4 +355,5 @@ public class Graficap extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
+
 }
