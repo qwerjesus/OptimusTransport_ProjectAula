@@ -195,7 +195,7 @@ public class Rutas extends javax.swing.JFrame {
     
     String [] x105 = {"Bazurto", "El Prado","La Popa",
                       "Chambacu","Centro", "Bodeguita"};
-    
+    try{
     
     if (BR >= 0) {
         
@@ -323,7 +323,8 @@ public class Rutas extends javax.swing.JFrame {
                 break;
         }
     }
-
+   }catch(Exception e){System.out.println("Seleccione una ruta");}
+    
     }//GEN-LAST:event_BUSCARActionPerformed
 
     /**
