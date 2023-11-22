@@ -1,3 +1,4 @@
+
 package views;
 import seguridadHash.PasswordHashing;
 import javax.swing.JOptionPane;
@@ -336,3 +337,4 @@ public class RegistroDeusuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
+  

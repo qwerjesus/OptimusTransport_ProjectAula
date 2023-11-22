@@ -383,3 +383,4 @@ public class TablaAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tablaAdmin;
     // End of variables declaration//GEN-END:variables
 }
+     

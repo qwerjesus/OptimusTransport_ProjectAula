@@ -221,13 +221,6 @@ public class Graficap extends javax.swing.JFrame {
             veradmin.setVisible(true);
             this.dispose();
         }
-//        else {
-//            
-//                MenuDeInicio menu = new MenuDeInicio();
-//                menu.setVisible(true);
-//                this.dispose();
-//            
-//        }
         
          // Lógica de verificación en la base de datos
         else if (verificarUsuario(nombreUsuario, password)) {
@@ -240,9 +233,9 @@ public class Graficap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_IniciarSeicionActionPerformed
+  
 // Método para verificar los datos del usuario en la base de datos
-// Método para verificar los datos del usuario en la base de datos
-
+  
     private boolean verificarUsuario(String nombreUsuario, String password) {
         try {
             String query = "SELECT * FROM Usuarios WHERE usuario = ? AND password = ?";
