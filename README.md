@@ -1,4 +1,5 @@
 # OptimusTransport_ProjectAula
+#se recomienda descargar la version 1.1 para evitar errores
 Trabajo de Proyecto de Aula segundo semestre
 
 Elaborado por: 
