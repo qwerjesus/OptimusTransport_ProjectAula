@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;  // Agrega esta importación
 import java.sql.SQLException;
 
+
 public class conex {
     Connection cn;
 
@@ -32,4 +33,20 @@ public class conex {
             System.out.println("Error al registrar usuario: " + e.getMessage());
         }
     }
+    public void registrarRutas(String ruta, String fecha, String nos) {
+        try {
+            String query = "INSERT INTO Rutas (ruta, fecha, novedad) VALUES (?, ?, ?)";
+            PreparedStatement statement = cn.prepareStatement(query);
+            statement.setString(1, ruta);
+            statement.setString(2, fecha);
+            statement.setString(3, nos);
+//            statement.setString(3, novedad);
+            statement.executeUpdate();
+            System.out.println("Ruta registrado exitosamente");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al registrar Ruta: " + e.getMessage());
+        }
+    }
+    
 }

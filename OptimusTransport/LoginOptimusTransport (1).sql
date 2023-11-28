@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-11-2023 a las 06:48:27
+-- Tiempo de generación: 28-11-2023 a las 03:00:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -38,14 +38,12 @@ CREATE TABLE `Usuarios` (
 --
 
 INSERT INTO `Usuarios` (`id`, `usuario`, `password`) VALUES
-(14, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'),
-(15, 'admin', 'admin'),
-(16, 'jesus', 'a54e71f0e17f5aaf7946e66ab42cf3b1fd4e61d60581736c9f0eb1c3f794eb7c'),
-(17, 'jesus', 'jesus'),
-(18, 'carlos', '7b85175b455060e3237e925f023053ca9515e8682a83c8b09911c724a1f8b75f'),
-(19, 'carlos', 'carlos'),
-(20, 'jesus', 'a54e71f0e17f5aaf7946e66ab42cf3b1fd4e61d60581736c9f0eb1c3f794eb7c'),
-(21, 'jesus', 'jesus');
+(24, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'),
+(25, 'admin', 'admin'),
+(26, 'jesus', 'a54e71f0e17f5aaf7946e66ab42cf3b1fd4e61d60581736c9f0eb1c3f794eb7c'),
+(27, 'jesus', 'jesus'),
+(30, 'RDA', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3'),
+(31, 'RDA', '123');
 
 --
 -- Índices para tablas volcadas
@@ -65,7 +63,7 @@ ALTER TABLE `Usuarios`
 -- AUTO_INCREMENT de la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

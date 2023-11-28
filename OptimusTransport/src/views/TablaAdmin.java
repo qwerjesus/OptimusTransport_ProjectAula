@@ -1,4 +1,5 @@
 package views;
+import conexion.conex;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -7,9 +8,11 @@ import model.Tabla;
 
 public class TablaAdmin extends javax.swing.JFrame {
       int xMouse,yMouse;
+      conex con = new conex();
     DefaultTableModel modelo;
   
     public TablaAdmin() {
+       con.conectarBD(); 
        this.setLocationByPlatform(true);
         initComponents();
         modelo = new DefaultTableModel();
@@ -237,9 +240,10 @@ public class TablaAdmin extends javax.swing.JFrame {
         Fecha.GenerarFecha();
 
         EntradasTexto[2] = GeneraFecha(Año, Mes, Dia, Hora, Minutos);
-
+        con.registrarRutas(TxtRuta.getText(), EntradasTexto[2], TxtNombreRuta.getText());
         modelo.addRow(EntradasTexto);
-
+//        tabla de rutas
+        
         TxtRuta.setText("");
         TxtNombreRuta.setText("");
         TxtAño.setText("");
@@ -383,4 +387,3 @@ public class TablaAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tablaAdmin;
     // End of variables declaration//GEN-END:variables
 }
-     

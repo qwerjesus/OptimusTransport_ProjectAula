@@ -1,17 +1,26 @@
 package views;
 
+import com.mysql.jdbc.Connection;
+import conexion.conex;
 import java.awt.AWTException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class Rutas extends javax.swing.JFrame {
     
     public static String mensaje;
     public static String lugar;
+    conex con = new conex();
+    Connection cn = (Connection) con.conectarBD();
     
     int xMouse,yMouse;
     public Rutas() {
+         
         initComponents();
         this.setLocationRelativeTo(null);
         this.x1.setVisible(false);
@@ -52,7 +61,6 @@ public class Rutas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
         jButton1.setText("↩");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +70,6 @@ public class Rutas extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 30));
 
-        BRutas.setBackground(new java.awt.Color(255, 255, 255));
         BRutas.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         BRutas.setForeground(new java.awt.Color(255, 102, 0));
         BRutas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "X101", "X102", "X103", "X104", "X105" }));
@@ -79,7 +86,6 @@ public class Rutas extends javax.swing.JFrame {
         jLabel2.setText("Rutas");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 60, -1));
 
-        BUSCAR.setBackground(new java.awt.Color(255, 255, 255));
         BUSCAR.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         BUSCAR.setForeground(new java.awt.Color(255, 102, 0));
         BUSCAR.setText("Buscar");
@@ -90,7 +96,6 @@ public class Rutas extends javax.swing.JFrame {
         });
         jPanel1.add(BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 90, 30));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Roboto Black", 2, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,9 +105,14 @@ public class Rutas extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "RUTAS", "CODIGOS", "HORARIO"
+                "Rutas", "Fecha", "Novedad"
             }
         ));
+        jTable1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTable1ComponentAdded(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 460));
@@ -327,6 +337,45 @@ public class Rutas extends javax.swing.JFrame {
     
     }//GEN-LAST:event_BUSCARActionPerformed
 
+    private void jTable1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTable1ComponentAdded
+        // TODO add your handling code here:
+        DefaultTableModel modelo;
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Ruta");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Novedad");
+        this.jTable1.setModel(modelo);
+        
+        try {
+            
+            String query = "SELECT * FROM Rutas";
+            PreparedStatement statement = cn.prepareStatement(query);
+            ResultSet result = statement.executeQuery();
+            
+            while (result.next()) {
+                String valor1 = result.getString("ruta");
+                String valor2 = result.getString("fecha");
+                String valor3 = result.getString("novedad");
+
+//                 Agregar una fila al modelo de la tabla
+                modelo.addRow(new Object[]{valor1, valor2, valor3});
+            }
+
+            result.close();
+            statement.close();
+            
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jTable1ComponentAdded
+     private void extraer() {
+        
+        
+        
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
